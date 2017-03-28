@@ -33,6 +33,9 @@ public abstract class PrintUnit {
 
     //拿畫筆
     abstract Paint getPaint();
+
+    //拿畫筆
+    abstract Paint getStorePaint();
     //直接畫
     abstract void drawUnit(Canvas canvas);
 

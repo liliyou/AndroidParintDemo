@@ -12,6 +12,9 @@ import java.util.HashMap;
 import winho.com.print.unit.PrintModel;
 
 import static android.R.attr.path;
+import static android.graphics.Paint.Style.FILL;
+import static android.graphics.Paint.Style.FILL_AND_STROKE;
+import static android.graphics.Paint.Style.STROKE;
 
 /*
 * point1 point2
@@ -101,12 +104,28 @@ public class Rectangle extends PrintUnit {
         Paint paint = new Paint();
         paint.setAntiAlias(true);
         paint.setColor(Color.RED);
+        paint.setStyle(FILL);
+        return paint;
+    }
+
+    @Override
+    Paint getStorePaint() {
+        Paint paint = new Paint();
+        paint.setAntiAlias(true);
+        paint.setStyle(STROKE);
+        paint.setColor(Color.BLUE);
+        paint.setStrokeWidth(20f);
         return paint;
     }
 
     @Override
     void drawUnit(Canvas canvas) {
 
+        drawMainPart(canvas);
+    }
+
+
+    private void drawMainPart(Canvas canvas) {
         if (point1 != null && point2 != null && point3 != null && point4 != null) {
 
             Path path = new Path();
@@ -116,6 +135,8 @@ public class Rectangle extends PrintUnit {
             path.lineTo(point3.get("X"), point3.get("Y"));
             path.close();
             canvas.drawPath(path, getPaint());
+            canvas.drawPath(path, getStorePaint());
         }
+
     }
 }
