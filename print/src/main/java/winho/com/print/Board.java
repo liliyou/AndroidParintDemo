@@ -60,6 +60,7 @@ public class Board extends View {
         setBoardBg();
 
         printUnit = PrintUnitHandle.newPaintUnit(0,0, nowWantToPrintModel);
+        printUnit.setCircleColor(getResources().getColor(R.color.draw_circle));
         printUnitArrayList.add(printUnit);
 
     }

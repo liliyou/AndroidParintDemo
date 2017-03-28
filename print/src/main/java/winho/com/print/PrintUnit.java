@@ -13,6 +13,9 @@ public abstract class PrintUnit {
 
     public PrintModel printModel;
 
+    public int circleColor = 0;
+
+
     //這個元件正在被放大
     abstract void onScaleSize(float x, float y);
 
@@ -36,6 +39,12 @@ public abstract class PrintUnit {
 
     //拿畫筆
     abstract Paint getStorePaint();
+
+    //拿圓圈
+    abstract Paint getCirclePaint();
+    //圓圈色
+    abstract void setCircleColor(int color);
+
     //直接畫
     abstract void drawUnit(Canvas canvas);
 

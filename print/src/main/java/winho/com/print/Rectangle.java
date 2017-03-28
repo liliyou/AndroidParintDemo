@@ -1,5 +1,6 @@
 package winho.com.print;
 
+import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -11,6 +12,7 @@ import java.util.HashMap;
 
 import winho.com.print.unit.PrintModel;
 
+import static android.R.attr.content;
 import static android.R.attr.path;
 import static android.graphics.Paint.Style.FILL;
 import static android.graphics.Paint.Style.FILL_AND_STROKE;
@@ -33,6 +35,7 @@ public class Rectangle extends PrintUnit {
     int textSize = 5;
     int thick = 2;
     String text = "";
+    int circleSize = 40;
 
 
     public Rectangle(HashMap<String, Float> point1) {
@@ -67,6 +70,8 @@ public class Rectangle extends PrintUnit {
 
     @Override
     Boolean isOnClickCircle(float x, float y) {
+
+
         return null;
     }
 
@@ -117,11 +122,24 @@ public class Rectangle extends PrintUnit {
         paint.setStrokeWidth(20f);
         return paint;
     }
+    @Override
+    Paint getCirclePaint() {
+        Paint paint = new Paint();
+        paint.setAntiAlias(true);
+        paint.setColor(circleColor);
+        return paint;
+    }
+
+    @Override
+    void setCircleColor(int color) {
+        circleColor=color;
+    }
 
     @Override
     void drawUnit(Canvas canvas) {
 
         drawMainPart(canvas);
+        drawCircle(canvas);
     }
 
 
@@ -138,5 +156,15 @@ public class Rectangle extends PrintUnit {
             canvas.drawPath(path, getStorePaint());
         }
 
+    }
+
+
+    private void drawCircle(Canvas canvas) {
+        if (point1 != null && point2 != null && point3 != null && point4 != null) {
+            canvas.drawCircle(point1.get("X"), point1.get("Y"), circleSize, getCirclePaint());
+            canvas.drawCircle(point2.get("X"), point2.get("Y"), circleSize, getCirclePaint());
+            canvas.drawCircle(point3.get("X"), point3.get("Y"), circleSize, getCirclePaint());
+            canvas.drawCircle(point4.get("X"), point4.get("Y"), circleSize, getCirclePaint());
+        }
     }
 }
