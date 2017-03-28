@@ -2,17 +2,58 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentPanel"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="side.lili.com.androidparintdemo.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btnDrawLine"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/btnDrawArrowLine"
+        android:text="Draw Line"
+        app:layout_constraintHorizontal_weight="1"
+        tools:layout_editor_absoluteY="0dp" />
+    <Button
+        android:id="@+id/btnDrawArrowLine"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toLeftOf="@+id/btnRectangle"
+        app:layout_constraintLeft_toRightOf="@+id/btnDrawLine"
+        app:layout_constraintHorizontal_weight="1"
+        android:text="Draw ArrowLine"
+        tools:layout_editor_absoluteY="0dp" />
+    <Button
+        android:id="@+id/btnRectangle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Draw Rectangle"
+        app:layout_constraintRight_toLeftOf="@+id/btnCuboid"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@+id/btnDrawArrowLine"
+        tools:layout_editor_absoluteY="0dp" />
+    <Button
+        android:id="@+id/btnCuboid"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/btnRectangle"
+        app:layout_constraintHorizontal_weight="1"
+        android:text="Draw Cuboid"
+        tools:layout_editor_absoluteY="0dp" />
+
+
+    <LinearLayout
+        android:id="@+id/viewDraw"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/black"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRectangle"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal" />
 
 </android.support.constraint.ConstraintLayout>

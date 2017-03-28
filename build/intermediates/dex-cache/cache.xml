@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/xuyating/.android/build-cache/c7cfabdec8f1a077bbb1b1a635c200407d180858/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7113302c965566b66df46c6ca75ea301576114a5">
+        <dex dex="/Users/xuyating/git/AndroidParintDemo/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_c3eb7e442e7dcb0ac260086b48279ee562683f35/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/xuyating/.android/build-cache/ad706262116a4f900c738f6acac8b2ec6b4cbb0d/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d4c4b83de2f6412072d2a29b1b7a5b03edaad5ff">
+        <dex dex="/Users/xuyating/git/AndroidParintDemo/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a4c933a7d844b914bf94545d1e8b68c5b14b01c9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/xuyating/git/AndroidParintDemo/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="/Users/xuyating/git/AndroidParintDemo/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_766807d79b10c03172c2b2303da07530c81e6e0a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/xuyating/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.1/constraint-layout-solver-1.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1ad79631209e77b0a2730fc112b4cc0c66a95132">
+        <dex dex="/Users/xuyating/git/AndroidParintDemo/app/build/intermediates/transforms/dex/debug/folders/1000/10/constraint-layout-solver-1.0.1_6e48085451dfd14e72bbe549826283526ffd8651/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/xuyating/git/AndroidParintDemo/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="739dc3daf22ebf3d466c914b42dbd2c07f7b896a">
+        <dex dex="/Users/xuyating/git/AndroidParintDemo/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_8af01a7b2c2b7186f2d23dea0d8290a719045f73/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/xuyating/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.1.0/748f0546d5c3c27f1aef07270ffea0c45f0c42a4/rxjava-1.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="748f0546d5c3c27f1aef07270ffea0c45f0c42a4">
+        <dex dex="/Users/xuyating/git/AndroidParintDemo/app/build/intermediates/transforms/dex/debug/folders/1000/10/rxjava-1.1.0_b364223f6c9cb94e79269417f0143155cffc7670/classes.dex" />
+    </item>
+
+</items>
