@@ -1,5 +1,6 @@
 package winho.com.print;
 
+import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
@@ -13,7 +14,7 @@ public abstract class PrintUnit {
 
     public PrintModel printModel;
 
-    public int circleColor = 0;
+    public Resources resources;
 
 
     //這個元件正在被放大
@@ -38,15 +39,18 @@ public abstract class PrintUnit {
     abstract Paint getPaint();
 
     //拿畫筆
-    abstract Paint getStorePaint();
+    abstract Paint getStrokePaint();
 
-    //拿圓圈
+    //拿圓圈畫筆
     abstract Paint getCirclePaint();
-    //圓圈色
-    abstract void setCircleColor(int color);
+
+    //畫圈圈
+    abstract void drawCircle(Canvas canvas);
+
+    //畫叉叉
+    abstract void drawDelete(Canvas canvas);
 
     //直接畫
     abstract void drawUnit(Canvas canvas);
-
 
 }

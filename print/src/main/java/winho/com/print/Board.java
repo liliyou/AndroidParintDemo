@@ -46,6 +46,7 @@ public class Board extends View {
     private String filePath;
     //圖片
     private Bitmap bitmapPhoto;
+    private Bitmap iconDelete;
     //現在使用元件
     private PrintUnit printUnit;
     //所有繪畫元件
@@ -59,9 +60,6 @@ public class Board extends View {
         this.filePath = filePath;
         setBoardBg();
 
-        printUnit = PrintUnitHandle.newPaintUnit(0,0, nowWantToPrintModel);
-        printUnit.setCircleColor(getResources().getColor(R.color.draw_circle));
-        printUnitArrayList.add(printUnit);
 
     }
 
@@ -71,9 +69,13 @@ public class Board extends View {
             public void run() {
                 //取得拍照圖片
                 bitmapPhoto = ImageHandle.getFitSampleBitmap(filePath, parentView.getWidth(), parentView.getHeight());
+                iconDelete = BitmapFactory.decodeResource(getResources(), R.drawable.delete_44);
                 if (bitmapPhoto != null) {
                     Log.e("", "");
                 }
+
+                printUnit = PrintUnitHandle.newPaintUnit(parentView, getResources(), nowWantToPrintModel, 300, 300, iconDelete);
+                printUnitArrayList.add(printUnit);
             }
         });
     }
@@ -108,6 +110,10 @@ public class Board extends View {
                 //當值元件要做事
 
                 //選擇畫面上的元件
+//                if (printUnit.isOnClickDelete(event.getX(), event.getY())) {
+//                    Log.e("", "isOnClickDelete");
+//                }
+
 
                 //建立一個元件
 //                printUnit = PrintUnitHandle.newPaintUnit(event.getX(), event.getY(), nowWantToPrintModel);
