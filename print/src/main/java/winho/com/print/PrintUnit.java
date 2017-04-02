@@ -16,12 +16,14 @@ public abstract class PrintUnit {
 
     public Resources resources;
 
-
     //這個元件正在被放大
     abstract void onScaleSize(float x, float y);
 
     //這個元件正在被編輯
     abstract Boolean isOnEdit(float x, float y);
+
+    //檢查是不是這個元件該做事
+    abstract Boolean onDuty(float x, float y);
 
     //檢查 x,y 是不是屬於這個元件
     abstract Boolean isOnChosen(float x, float y);
@@ -31,6 +33,9 @@ public abstract class PrintUnit {
 
     //正在被點擊圓圈
     abstract Boolean isOnClickCircle(float x, float y);
+
+    //移動點
+    abstract void movePoint(int MovePointIndex, float x, float y);
 
     //設定狀態
     abstract void setStatus(int status);
@@ -52,5 +57,6 @@ public abstract class PrintUnit {
 
     //直接畫
     abstract void drawUnit(Canvas canvas);
+
 
 }

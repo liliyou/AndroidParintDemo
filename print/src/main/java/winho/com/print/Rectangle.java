@@ -54,7 +54,20 @@ public class Rectangle extends PrintUnit {
 
     @Override
     void onScaleSize(float x, float y) {
-        onMovePoint4(x, y);
+
+        HashMap<String, Float> point2 = new HashMap<String, Float>();
+        point2.put("X", x);
+        point2.put("Y", points.get(1).get("Y"));
+        points.put(2, point2);
+        HashMap<String, Float> point4 = new HashMap<String, Float>();
+        point4.put("X", x);
+        point4.put("Y", y);
+        points.put(4, point4);
+        HashMap<String, Float> point3 = new HashMap<String, Float>();
+        point3.put("X", points.get(1).get("X"));
+        point3.put("Y", y);
+        points.put(3, point3);
+
     }
 
     @Override
@@ -70,14 +83,42 @@ public class Rectangle extends PrintUnit {
     }
 
     @Override
+    Boolean onDuty(float x, float y) {
+
+        Boolean onClick = true;
+
+        //如果還沒有載入完畢
+        if ((!points.containsKey(3)) || (!points.get(3).containsKey("Y"))) {
+            onClick = false;
+            return onClick;
+        }
+
+        //如果是Ｘ
+        if (points.get(1).get("X") > x || points.get(4).get("X") < x) {
+            onClick = false;
+            return onClick;
+        }
+
+        //如果是Ｙ
+        if (points.get(1).get("Y") > y || points.get(4).get("Y") < y) {
+            onClick = false;
+            return onClick;
+        }
+
+        return onClick;
+    }
+
+    @Override
     Boolean isOnClickDelete(float x, float y) {
         Boolean onClick = false;
         if (onEdit && deletePosition.containsKey("X") && deletePosition.containsKey("Y")) {
-            if (deletePosition.get("X") < x && deletePosition.get("X") + iconDelete.getWidth() > x) {
-                if (deletePosition.get("Y") < y && deletePosition.get("Y") + iconDelete.getHeight() > y) {
-                    onClick = true;
-                }
-            }
+
+        }
+        if (deletePosition.get("X") < x && deletePosition.get("X") + iconDelete.getWidth() > x) {
+
+        }
+        if (deletePosition.get("Y") < y && deletePosition.get("Y") + iconDelete.getHeight() > y) {
+            onClick = true;
         }
         return onClick;
     }
@@ -106,36 +147,13 @@ public class Rectangle extends PrintUnit {
 
     }
 
-    public void onMovePoint1(float x, float y) {
 
+    public void movePoint(int MovePointIndex, float x, float y) {
 
-    }
-
-    public void onMovePoint2(float x, float y) {
-
-
-    }
-
-    public void onMovePoint3(float x, float y) {
-
-
-    }
-
-    public void onMovePoint4(float x, float y) {
-
-
-        HashMap<String, Float> point2 = new HashMap<String, Float>();
-        point2.put("X", x);
-        point2.put("Y", points.get(1).get("Y"));
-        points.put(2, point2);
-        HashMap<String, Float> point4 = new HashMap<String, Float>();
-        point4.put("X", x);
-        point4.put("Y", y);
-        points.put(4, point4);
-        HashMap<String, Float> point3 = new HashMap<String, Float>();
-        point3.put("X", points.get(1).get("X"));
-        point3.put("Y", y);
-        points.put(3, point3);
+        HashMap<String, Float> point = new HashMap<String, Float>();
+        point.put("X", x);
+        point.put("Y", y);
+        points.put(MovePointIndex, point);
     }
 
     @Override

@@ -75,6 +75,7 @@ public class Board extends View {
                 }
 
                 printUnit = PrintUnitHandle.newPaintUnit(parentView, getResources(), nowWantToPrintModel, 300, 300, iconDelete);
+                printUnit.onScaleSize(900, 900);
                 printUnitArrayList.add(printUnit);
             }
         });
@@ -109,6 +110,7 @@ public class Board extends View {
 
                 //當值元件要做事
 
+
                 //選擇畫面上的元件
 //                if (printUnit.isOnClickDelete(event.getX(), event.getY())) {
 //                    Log.e("", "isOnClickDelete");
@@ -120,11 +122,15 @@ public class Board extends View {
 //                printUnitArrayList.add(printUnit);
 
 //                Log.e("","x:"+event.getX()+"y:"+event.getY());
+
+
+                Boolean isOnDuty = printUnit.onDuty(event.getX(), event.getX());
+                Log.e("isOnDuty", "" + isOnDuty);
+
                 return true;
 
             case MotionEvent.ACTION_MOVE:
 //                Log.i("TOP", "ACTION_MOVE");
-                printUnit.onScaleSize(event.getX(), event.getY());
 //                invalidate();
                 return true;
             case MotionEvent.ACTION_UP:

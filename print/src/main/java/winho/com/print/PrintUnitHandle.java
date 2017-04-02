@@ -18,6 +18,7 @@ import static winho.com.print.unit.PrintModel.Rectangle;
 
 public class PrintUnitHandle {
 
+
     public static PrintUnit newPaintUnit(View parentView, Resources resources,
                                          PrintModel printModel, float x, float y, Bitmap iconDelete) {
         switch (printModel) {
