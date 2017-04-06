@@ -20,7 +20,12 @@ public abstract class PrintUnit {
     abstract void onScaleSize(float x, float y);
 
     //檢查是不是這個元件該做事
-    abstract Boolean onDuty(float x, float y);
+
+    //點擊元件做事
+    abstract void onActionDown(float x, float y);
+
+    //檢查XY在不在元件內
+    abstract Boolean contains(float x, float y);
 
     //傳入移動手勢
     abstract Boolean onMoveProcess(float x, float y);
@@ -33,6 +38,9 @@ public abstract class PrintUnit {
 
     //正在被點擊圓圈
     abstract Boolean isOnClickCircle(float x, float y);
+
+    //正在被點擊圓圈索引
+    abstract int getClickCircleIndex(float x, float y);
 
     //移動點
     abstract void movePoint(int MovePointIndex, float x, float y);

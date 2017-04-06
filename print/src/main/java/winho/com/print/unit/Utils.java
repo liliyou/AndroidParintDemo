@@ -24,4 +24,6 @@ public class Utils {
         options.inSampleSize = 2;
         return options;
     }
+
+
 }

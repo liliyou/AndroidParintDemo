@@ -16,7 +16,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="d3b5eda5f580620f7b375be121047d341b67c058">
+        sha1="57fdfb88884f9d11b81e0fd8d8d32ec3923970b4">
         <dex dex="/Users/xuyating/git/AndroidParintDemo/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_8af01a7b2c2b7186f2d23dea0d8290a719045f73/classes.dex" />
     </item>
 

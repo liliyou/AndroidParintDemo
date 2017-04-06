@@ -122,16 +122,21 @@ public class Board extends View {
 //                printUnitArrayList.add(printUnit);;
 
                 //確認當值元件
-                Boolean isOnDuty = printUnit.onDuty(event.getX(), event.getY());
 
+                printUnit.onActionDown(event.getX(), event.getY());
 
-                Log.e("event","x:"+event.getX()+"y:"+event.getY());
+//                Boolean isInPrintUnit = printUnit.contains(event.getX(), event.getY());
+
+//                Log.e("在此元件內", ""+isInPrintUnit);
+//                Log.e("event", "x:" + event.getX() + "y:" + event.getY());
+
 //                Log.e("isOnDuty", "" + isOnDuty);
+//                Log.e("", "" + isOnDuty);
 
                 return true;
 
             case MotionEvent.ACTION_MOVE:
-//                printUnit.onMoveProcess(event.getX(), event.getY());
+                printUnit.onMoveProcess(event.getX(), event.getY());
 //                Log.i("TOP", "ACTION_MOVE");
 //                invalidate();
                 return true;

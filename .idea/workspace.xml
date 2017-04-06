@@ -11,40 +11,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25798cc0-d819-4385-ab51-dbb070910fd3" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/constraint_layout_1_0_0_alpha8.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/constraint_layout_solver_1_0_0_alpha8.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-03-29-23-15-44-907.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-03-29-23-16-05-233.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-03-29-23-17-35-336.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-03-29-23-18-24-111.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-03-29-23-19-11-447.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-03-29-23-20-57-181.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-03-29-23-23-29-407.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-03-29-23-27-08-843.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-03-29-23-28-01-979.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-03-29-23-29-08-767.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-03-29-23-29-40-656.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-03-29-23-30-13-314.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-03-29-23-30-56-417.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-03-29-23-31-23-613.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-03-29-23-31-51-903.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-03-29-23-32-44-721.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-03-29-23-33-14-390.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-03-29-23-33-39-785.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-03-29-23-34-05-888.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-03-29-23-34-26-828.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-03-29-23-35-07-750.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-03-29-23-36-13-638.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-03-29-23-38-15-174.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-03-29-23-38-52-364.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-03-29-23-40-18-247.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-03-29-23-58-38-472.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-03-30-00-00-25-482.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-04-02-22-15-31-763.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-04-02-22-38-42-745.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-04-02-22-52-40-279.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-04-02-22-53-41-827.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-04-02-22-55-28-619.rawproto" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/print/src/main/java/winho/com/print/unit/PrintState.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-04-06-17-54-06-860.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-04-06-18-09-41-487.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-04-06-18-10-54-553.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-04-06-18-11-41-197.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-04-06-18-12-13-643.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-04-06-18-12-46-413.rawproto" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
@@ -55,15 +28,13 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_print_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_print_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_print_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_print_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_print_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_print_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/mockable-android-25.jar" afterPath="$PROJECT_DIR$/build/generated/mockable-android-25.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/print/print.iml" afterPath="$PROJECT_DIR$/print/print.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/print/src/main/java/winho/com/print/Board.java" afterPath="$PROJECT_DIR$/print/src/main/java/winho/com/print/Board.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/print/src/main/java/winho/com/print/PrintUnit.java" afterPath="$PROJECT_DIR$/print/src/main/java/winho/com/print/PrintUnit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/print/src/main/java/winho/com/print/PrintUnitHandle.java" afterPath="$PROJECT_DIR$/print/src/main/java/winho/com/print/PrintUnitHandle.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/print/src/main/java/winho/com/print/Rectangle.java" afterPath="$PROJECT_DIR$/print/src/main/java/winho/com/print/Rectangle.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/print/src/main/java/winho/com/print/unit/Utils.java" afterPath="$PROJECT_DIR$/print/src/main/java/winho/com/print/unit/Utils.java" />
     </list>
     <ignored path="AndroidParintDemo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -98,8 +69,8 @@
       <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/print/src/main/java/winho/com/print/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="123" column="20" selection-start-line="123" selection-start-column="20" selection-end-line="123" selection-end-column="20" />
+            <state relative-caret-position="282">
+              <caret line="130" column="37" selection-start-line="130" selection-start-column="37" selection-end-line="130" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1395#1406#0" expanded="true" />
@@ -113,11 +84,58 @@
       <file leaf-file-name="Rectangle.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/print/src/main/java/winho/com/print/Rectangle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="855">
-              <caret line="171" column="0" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
+            <state relative-caret-position="3810">
+              <caret line="324" column="47" selection-start-line="324" selection-start-column="47" selection-end-line="324" selection-end-column="47" />
               <folding>
-                <element signature="e#853#886#0" expanded="true" />
+                <element signature="e#975#1008#0" expanded="true" />
+                <element signature="e#1082#1115#0" expanded="true" />
+                <element signature="e#1174#1189#0" expanded="true" />
+                <element signature="e#3561#3576#0" expanded="true" />
+                <element signature="e#4713#4728#0" expanded="true" />
+                <marker date="1491487256000" expanded="true" signature="1287:1351" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PrintModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/print/src/main/java/winho/com/print/unit/PrintModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PrintState.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/print/src/main/java/winho/com/print/unit/PrintState.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PrintUnitHandle.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/print/src/main/java/winho/com/print/PrintUnitHandle.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="316">
+              <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/print/src/main/java/winho/com/print/unit/Utils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -125,8 +143,8 @@
       <file leaf-file-name="PrintUnit.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/print/src/main/java/winho/com/print/PrintUnit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+            <state relative-caret-position="203">
+              <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -2827,7 +2845,6 @@
       <list>
         <option value="$PROJECT_DIR$/settings.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/side/lili/com/androidparintdemo/unit/Utils.java" />
-        <option value="$PROJECT_DIR$/print/src/main/java/winho/com/print/unit/Utils.java" />
         <option value="$PROJECT_DIR$/print/build.gradle" />
         <option value="$PROJECT_DIR$/print/src/main/java/winho/com/print/GraphicsHandler.java" />
         <option value="$PROJECT_DIR$/print/src/main/java/winho/com/print/GraphicsUnit.java" />
@@ -2844,8 +2861,10 @@
         <option value="$PROJECT_DIR$/print/src/main/java/winho/com/print/Line.java" />
         <option value="$PROJECT_DIR$/print/src/main/res/values/color.xml" />
         <option value="$PROJECT_DIR$/print/src/main/java/winho/com/print/PrintUnitHandle.java" />
+        <option value="$PROJECT_DIR$/print/src/main/java/winho/com/print/unit/Utils.java" />
         <option value="$PROJECT_DIR$/print/src/main/java/winho/com/print/PrintUnit.java" />
         <option value="$PROJECT_DIR$/print/src/main/java/winho/com/print/Board.java" />
+        <option value="$PROJECT_DIR$/print/src/main/java/winho/com/print/unit/PrintState.java" />
         <option value="$PROJECT_DIR$/print/src/main/java/winho/com/print/Rectangle.java" />
       </list>
     </option>
@@ -3206,8 +3225,8 @@
       <recent name="winho.com.print" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="winho.com.print" />
       <recent name="winho.com.print.unit" />
+      <recent name="winho.com.print" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/print/src/main/res/drawable" />
@@ -3551,7 +3570,7 @@
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -3622,58 +3641,16 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/print/src/main/java/winho/com/print/Board.java</url>
-          <line>127</line>
+          <line>130</line>
           <properties />
           <option name="timeStamp" value="35" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/print/src/main/java/winho/com/print/Rectangle.java</url>
-          <line>106</line>
-          <properties />
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="39" />
+      <option name="time" value="46" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/print/src/main/java/winho/com/print/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1395#1406#0" expanded="true" />
-            <element signature="e#1700#2361#0" expanded="true" />
-            <element signature="e#2360#2361#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/print/src/main/java/winho/com/print/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1905">
-          <caret line="127" column="67" selection-start-line="127" selection-start-column="67" selection-end-line="127" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1395#1406#0" expanded="true" />
-            <element signature="e#1700#2361#0" expanded="true" />
-            <element signature="e#2360#2361#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/print/src/main/java/winho/com/print/Rectangle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="110" column="12" selection-start-line="75" selection-start-column="8" selection-end-line="110" selection-end-column="12" />
-          <folding>
-            <element signature="e#853#886#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/print/src/main/java/winho/com/print/PrintUnit.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -3712,7 +3689,12 @@
         <state relative-caret-position="525">
           <caret line="55" column="20" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="20" />
           <folding>
-            <element signature="e#853#886#0" expanded="true" />
+            <element signature="e#975#1008#0" expanded="true" />
+            <element signature="e#1082#1115#0" expanded="true" />
+            <element signature="e#1174#1189#0" expanded="true" />
+            <element signature="e#3561#3576#0" expanded="true" />
+            <element signature="e#4713#4728#0" expanded="true" />
+            <marker date="1491487256000" expanded="true" signature="1287:1351" ph="..." />
           </folding>
         </state>
       </provider>
@@ -3778,7 +3760,12 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#853#886#0" expanded="true" />
+            <element signature="e#975#1008#0" expanded="true" />
+            <element signature="e#1082#1115#0" expanded="true" />
+            <element signature="e#1174#1189#0" expanded="true" />
+            <element signature="e#3561#3576#0" expanded="true" />
+            <element signature="e#4713#4728#0" expanded="true" />
+            <marker date="1491487256000" expanded="true" signature="1287:1351" ph="..." />
           </folding>
         </state>
       </provider>
@@ -3897,16 +3884,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/print/src/main/java/winho/com/print/unit/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="17" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/print/src/main/java/winho/com/print/SaveInText.java" />
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
@@ -3986,14 +3963,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/print/src/main/java/winho/com/print/unit/PrintModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/print/src/main/res/values/color.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -4025,20 +3994,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/print/src/main/java/winho/com/print/unit/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/print/src/main/java/winho/com/print/PrintUnitHandle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
+        <state relative-caret-position="316">
+          <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-25/android/graphics/Region.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="172" column="26" selection-start-line="172" selection-start-column="26" selection-end-line="172" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-25/android/graphics/Rect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="74" column="21" selection-start-line="74" selection-start-column="21" selection-end-line="74" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/print/src/main/java/winho/com/print/PrintUnit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+        <state relative-caret-position="203">
+          <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -4047,8 +4040,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/print/src/main/java/winho/com/print/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="123" column="20" selection-start-line="123" selection-start-column="20" selection-end-line="123" selection-end-column="20" />
+        <state relative-caret-position="282">
+          <caret line="130" column="37" selection-start-line="130" selection-start-column="37" selection-end-line="130" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1395#1406#0" expanded="true" />
@@ -4058,12 +4051,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/print/src/main/java/winho/com/print/unit/PrintState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/print/src/main/java/winho/com/print/unit/PrintModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/print/src/main/java/winho/com/print/Rectangle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="171" column="0" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
+        <state relative-caret-position="3810">
+          <caret line="324" column="47" selection-start-line="324" selection-start-column="47" selection-end-line="324" selection-end-column="47" />
           <folding>
-            <element signature="e#853#886#0" expanded="true" />
+            <element signature="e#975#1008#0" expanded="true" />
+            <element signature="e#1082#1115#0" expanded="true" />
+            <element signature="e#1174#1189#0" expanded="true" />
+            <element signature="e#3561#3576#0" expanded="true" />
+            <element signature="e#4713#4728#0" expanded="true" />
+            <marker date="1491487256000" expanded="true" signature="1287:1351" ph="..." />
           </folding>
         </state>
       </provider>
