@@ -80,7 +80,7 @@ public class Rectangle extends PrintUnit {
     @Override
     void onActionDown(float x, float y) {
 
-        //如果早就是編輯模式
+
         if (printState == PrintState.NotEdit) {
             //框裡轉換為編輯模式
             printState = PrintState.Edit;
@@ -89,24 +89,25 @@ public class Rectangle extends PrintUnit {
             if ((!points.containsKey(3)) || (!points.get(3).containsKey("Y"))) {
                 printState = PrintState.NotEdit;
             }
-            //如果不在框裡
-            if (!contains(x, y)) {
-                printState = PrintState.NotEdit;
-            }
         } else {
+            Boolean hasEdit = false;
+            //如果早就是編輯模式
+
             if (isOnClickDelete(x, y)) {
                 printState = PrintState.onDelete;
+                hasEdit = true;
             }
-            //點擊點得到正在點擊的點(不使用isClickCircle 因為會有時間性bug
-            nowChangePointIndex = getClickCircleIndex(x, y);
-            if (nowChangePointIndex != 0) {
+            //點擊點得到正在點擊的點
+            if (isOnClickCircle(x, y)) {
+                nowChangePointIndex = getClickCircleIndex(x, y);
                 printState = PrintState.onMoveCircle;
+                hasEdit = true;
             }
 
             //如果在框裡
             if (contains(x, y)) {
                 //準備移動初始化
-                if ((printState != PrintState.onDelete) && (printState != PrintState.onMoveCircle)) {
+                if (!hasEdit) {
                     //初始化 space
                     for (int i = 1; i < 5; ++i) {
                         HashMap<String, Float> space = new HashMap<String, Float>();
@@ -115,11 +116,14 @@ public class Rectangle extends PrintUnit {
                         pointsSpace.put(i, space);
                     }
                     printState = PrintState.onMovePrintUnit;
+                    hasEdit = true;
                 }
-
-            } else {
+            }
+            //禁止編輯
+            if (!hasEdit) {
                 printState = PrintState.NotEdit;
             }
+
         }
     }
 
@@ -302,9 +306,10 @@ public class Rectangle extends PrintUnit {
     private Region getRegion(Path path) {
         Region region = new Region();
         region.setPath(path, new Region(0, 0, parentView.getWidth(), parentView.getHeight()));
-        Rect rect = region.getBounds();
-        Rect rectLarge = new Rect(rect.left - circleSize, rect.top - circleSize - iconDelete.getHeight() - 40, rect.right + circleSize, rect.bottom + circleSize);
-        region.set(rectLarge);
+        //放大
+//        Rect rect = region.getBounds();
+//        Rect rectLarge = new Rect(rect.left - circleSize, rect.top - circleSize - iconDelete.getHeight() - 40, rect.right + circleSize, rect.bottom + circleSize);
+//        region.set(rectLarge);
 
         return region;
     }

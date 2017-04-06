@@ -11,13 +11,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25798cc0-d819-4385-ab51-dbb070910fd3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/print/src/main/java/winho/com/print/unit/PrintState.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-04-06-17-54-06-860.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-04-06-18-09-41-487.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-04-06-18-10-54-553.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-04-06-18-11-41-197.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-04-06-18-12-13-643.rawproto" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-04-06-18-12-46-413.rawproto" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
@@ -28,13 +21,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_print_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_print_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_print_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_print_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_print_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_print_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/mockable-android-25.jar" afterPath="$PROJECT_DIR$/build/generated/mockable-android-25.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/print/src/main/java/winho/com/print/Board.java" afterPath="$PROJECT_DIR$/print/src/main/java/winho/com/print/Board.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/print/src/main/java/winho/com/print/PrintUnit.java" afterPath="$PROJECT_DIR$/print/src/main/java/winho/com/print/PrintUnit.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/print/src/main/java/winho/com/print/Rectangle.java" afterPath="$PROJECT_DIR$/print/src/main/java/winho/com/print/Rectangle.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/print/src/main/java/winho/com/print/unit/Utils.java" afterPath="$PROJECT_DIR$/print/src/main/java/winho/com/print/unit/Utils.java" />
     </list>
     <ignored path="AndroidParintDemo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -84,15 +72,15 @@
       <file leaf-file-name="Rectangle.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/print/src/main/java/winho/com/print/Rectangle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3810">
-              <caret line="324" column="47" selection-start-line="324" selection-start-column="47" selection-end-line="324" selection-end-column="47" />
+            <state relative-caret-position="222">
+              <caret line="160" column="24" selection-start-line="160" selection-start-column="24" selection-end-line="160" selection-end-column="24" />
               <folding>
                 <element signature="e#975#1008#0" expanded="true" />
                 <element signature="e#1082#1115#0" expanded="true" />
                 <element signature="e#1174#1189#0" expanded="true" />
-                <element signature="e#3561#3576#0" expanded="true" />
-                <element signature="e#4713#4728#0" expanded="true" />
-                <marker date="1491487256000" expanded="true" signature="1287:1351" ph="..." />
+                <element signature="e#3452#3467#0" expanded="true" />
+                <element signature="e#4680#4695#0" expanded="true" />
+                <marker date="1491487993000" expanded="true" signature="1287:1351" ph="..." />
               </folding>
             </state>
           </provider>
@@ -3692,9 +3680,9 @@
             <element signature="e#975#1008#0" expanded="true" />
             <element signature="e#1082#1115#0" expanded="true" />
             <element signature="e#1174#1189#0" expanded="true" />
-            <element signature="e#3561#3576#0" expanded="true" />
-            <element signature="e#4713#4728#0" expanded="true" />
-            <marker date="1491487256000" expanded="true" signature="1287:1351" ph="..." />
+            <element signature="e#3452#3467#0" expanded="true" />
+            <element signature="e#4680#4695#0" expanded="true" />
+            <marker date="1491487993000" expanded="true" signature="1287:1351" ph="..." />
           </folding>
         </state>
       </provider>
@@ -3763,9 +3751,9 @@
             <element signature="e#975#1008#0" expanded="true" />
             <element signature="e#1082#1115#0" expanded="true" />
             <element signature="e#1174#1189#0" expanded="true" />
-            <element signature="e#3561#3576#0" expanded="true" />
-            <element signature="e#4713#4728#0" expanded="true" />
-            <marker date="1491487256000" expanded="true" signature="1287:1351" ph="..." />
+            <element signature="e#3452#3467#0" expanded="true" />
+            <element signature="e#4680#4695#0" expanded="true" />
+            <marker date="1491487993000" expanded="true" signature="1287:1351" ph="..." />
           </folding>
         </state>
       </provider>
@@ -4069,15 +4057,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/print/src/main/java/winho/com/print/Rectangle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3810">
-          <caret line="324" column="47" selection-start-line="324" selection-start-column="47" selection-end-line="324" selection-end-column="47" />
+        <state relative-caret-position="222">
+          <caret line="160" column="24" selection-start-line="160" selection-start-column="24" selection-end-line="160" selection-end-column="24" />
           <folding>
             <element signature="e#975#1008#0" expanded="true" />
             <element signature="e#1082#1115#0" expanded="true" />
             <element signature="e#1174#1189#0" expanded="true" />
-            <element signature="e#3561#3576#0" expanded="true" />
-            <element signature="e#4713#4728#0" expanded="true" />
-            <marker date="1491487256000" expanded="true" signature="1287:1351" ph="..." />
+            <element signature="e#3452#3467#0" expanded="true" />
+            <element signature="e#4680#4695#0" expanded="true" />
+            <marker date="1491487993000" expanded="true" signature="1287:1351" ph="..." />
           </folding>
         </state>
       </provider>
