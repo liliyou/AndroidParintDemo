@@ -119,17 +119,19 @@ public class Board extends View {
 
                 //建立一個元件
 //                printUnit = PrintUnitHandle.newPaintUnit(event.getX(), event.getY(), nowWantToPrintModel);
-//                printUnitArrayList.add(printUnit);
+//                printUnitArrayList.add(printUnit);;
 
-//                Log.e("","x:"+event.getX()+"y:"+event.getY());
+                //確認當值元件
+                Boolean isOnDuty = printUnit.onDuty(event.getX(), event.getY());
 
 
-                Boolean isOnDuty = printUnit.onDuty(event.getX(), event.getX());
-                Log.e("isOnDuty", "" + isOnDuty);
+                Log.e("event","x:"+event.getX()+"y:"+event.getY());
+//                Log.e("isOnDuty", "" + isOnDuty);
 
                 return true;
 
             case MotionEvent.ACTION_MOVE:
+//                printUnit.onMoveProcess(event.getX(), event.getY());
 //                Log.i("TOP", "ACTION_MOVE");
 //                invalidate();
                 return true;

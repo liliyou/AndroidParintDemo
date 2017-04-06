@@ -23,21 +23,21 @@ import static android.graphics.Paint.Style.FILL_AND_STROKE;
 import static android.graphics.Paint.Style.STROKE;
 
 /*
-* point1 point2
-* point3 point4
+* point1 point3
+* point2 point4
 * */
 
 public class Rectangle extends PrintUnit {
 
 
-    Boolean onEdit = true;
+    Boolean onEdit = false;
 
     HashMap<Integer, HashMap<String, Float>> points = new HashMap<Integer, HashMap<String, Float>>();
     HashMap<String, Float> deletePosition = new HashMap<String, Float>();
     int textSize = 5;
     int thick = 2;
     int circleSize = 50;
-    int nowChangePointIndex = 1;
+    int nowChangePointIndex = 0;
     String text = "";
     Bitmap iconDelete;
     View parentView;
@@ -56,88 +56,119 @@ public class Rectangle extends PrintUnit {
     void onScaleSize(float x, float y) {
 
         HashMap<String, Float> point2 = new HashMap<String, Float>();
-        point2.put("X", x);
-        point2.put("Y", points.get(1).get("Y"));
+        point2.put("X", points.get(1).get("X"));
+        point2.put("Y", y);
         points.put(2, point2);
+        HashMap<String, Float> point3 = new HashMap<String, Float>();
+        point3.put("X", x);
+        point3.put("Y", points.get(1).get("X"));
+        points.put(3, point3);
         HashMap<String, Float> point4 = new HashMap<String, Float>();
         point4.put("X", x);
         point4.put("Y", y);
         points.put(4, point4);
-        HashMap<String, Float> point3 = new HashMap<String, Float>();
-        point3.put("X", points.get(1).get("X"));
-        point3.put("Y", y);
-        points.put(3, point3);
 
     }
 
     @Override
-    Boolean isOnEdit(float x, float y) {
-        return onEdit;
+    Boolean onDuty(float x, float y) {
+
+        Boolean onClickThis = true;
+        //如果早就是編輯模式
+        if (onEdit) {
+            //點擊叉叉？
+            if (isOnClickDelete(x, y)) {
+                //刪除這個元件
+            }
+
+            //點擊點
+            if (isOnClickCircle(x, y)) {
+
+            }
+
+        } else {
+            //如果還沒有載入完畢
+            if ((!points.containsKey(3)) || (!points.get(3).containsKey("Y"))) {
+                onClickThis = false;
+                onEdit = false;
+                return onClickThis;
+            }
+
+            //如果不在匡裡
+            if (!(points.get(1).get("X") < x && points.get(4).get("X") > x &&
+                    points.get(1).get("Y") < y && points.get(4).get("Y") > y)) {
+                onClickThis = false;
+                onEdit = false;
+                return onClickThis;
+            }
+
+            //轉換為編輯模式
+            if ((!onEdit) && onClickThis) {
+                onEdit = true;
+            }
+        }
+
+
+        return onClickThis;
     }
 
     @Override
-    Boolean isOnChosen(float x, float y) {
+    Boolean onMoveProcess(float x, float y) {
+        if (onEdit && nowChangePointIndex == 0) {
+
+        }
+        if (nowChangePointIndex != 0) {
+            movePoint(nowChangePointIndex, x, y);
+        }
 
 
         return null;
     }
 
     @Override
-    Boolean onDuty(float x, float y) {
-
-        Boolean onClick = true;
-
-        //如果還沒有載入完畢
-        if ((!points.containsKey(3)) || (!points.get(3).containsKey("Y"))) {
-            onClick = false;
-            return onClick;
-        }
-
-        //如果是Ｘ
-        if (points.get(1).get("X") > x || points.get(4).get("X") < x) {
-            onClick = false;
-            return onClick;
-        }
-
-        //如果是Ｙ
-        if (points.get(1).get("Y") > y || points.get(4).get("Y") < y) {
-            onClick = false;
-            return onClick;
-        }
-
-        return onClick;
+    Boolean onActionUpProcess(float x, float y) {
+        return null;
     }
 
     @Override
     Boolean isOnClickDelete(float x, float y) {
         Boolean onClick = false;
-        if (onEdit && deletePosition.containsKey("X") && deletePosition.containsKey("Y")) {
-
-        }
-        if (deletePosition.get("X") < x && deletePosition.get("X") + iconDelete.getWidth() > x) {
-
-        }
-        if (deletePosition.get("Y") < y && deletePosition.get("Y") + iconDelete.getHeight() > y) {
-            onClick = true;
-        }
+//        if (onEdit && deletePosition.containsKey("X") && deletePosition.containsKey("Y")) {
+//
+//        }
+//        if (deletePosition.get("X") < x && deletePosition.get("X") + iconDelete.getWidth() > x) {
+//
+//        }
+//        if (deletePosition.get("Y") < y && deletePosition.get("Y") + iconDelete.getHeight() > y) {
+//            onClick = true;
+//        }
         return onClick;
     }
 
     @Override
     Boolean isOnClickCircle(float x, float y) {
-
+        nowChangePointIndex = 0;
         Boolean onClick = false;
-        if (onEdit && points.containsKey(3) && points.get(3).containsKey("Y")) {
+        if (onEdit && points.size() == 4) {
             for (int i = 1; i < 5; ++i) {
-                if (points.get(i).get("X") < x && points.get(i).get("X") + (circleSize / 2) > x) {
-                    if (points.get(i).get("Y") < y && points.get(i).get("Y") + (circleSize / 2) > y) {
-                        onClick = true;
-                        nowChangePointIndex = i;
-                        break;
-                    }
+                float point_X = points.get(i).get("X");
+                float point_Y = points.get(i).get("Y");
+
+                //上下左右判定
+                Boolean isX_L = ((point_X - (circleSize / 2)) < x);
+                Boolean isX_R = ((point_X + (circleSize / 2)) > x);
+                Boolean isY_T = ((point_Y - (circleSize / 2)) < y);
+                Boolean isY_B = ((point_Y + (circleSize / 2)) > y);
+
+                if (isX_L && isX_R && isY_T && isY_B) {
+                    onClick = true;
+                    nowChangePointIndex = i;
+                    break;
                 }
+
             }
         }
+//        Log.e("目前點擊的點", "" + nowChangePointIndex);
 
         return onClick;
     }

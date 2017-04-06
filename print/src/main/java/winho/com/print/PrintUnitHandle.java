@@ -37,14 +37,14 @@ public class PrintUnitHandle {
     }
 
 
-    public static PrintUnit getOnProcessUnit(float x, float y, ArrayList<PrintUnit> printUnitArrayList) {
-        for (int i = 0; i < printUnitArrayList.size(); i++) {
-            if (printUnitArrayList.get(i).isOnEdit(x, y)) {
-                return printUnitArrayList.get(i);
-            }
-        }
-        return null;
-    }
+//    public static PrintUnit getOnProcessUnit(float x, float y, ArrayList<PrintUnit> printUnitArrayList) {
+//        for (int i = 0; i < printUnitArrayList.size(); i++) {
+//            if (printUnitArrayList.get(i).isOnEdit(x, y)) {
+//                return printUnitArrayList.get(i);
+//            }
+//        }
+//        return null;
+//    }
 
 
 

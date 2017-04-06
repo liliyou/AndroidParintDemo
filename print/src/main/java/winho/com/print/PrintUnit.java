@@ -19,14 +19,14 @@ public abstract class PrintUnit {
     //這個元件正在被放大
     abstract void onScaleSize(float x, float y);
 
-    //這個元件正在被編輯
-    abstract Boolean isOnEdit(float x, float y);
-
     //檢查是不是這個元件該做事
     abstract Boolean onDuty(float x, float y);
 
-    //檢查 x,y 是不是屬於這個元件
-    abstract Boolean isOnChosen(float x, float y);
+    //傳入移動手勢
+    abstract Boolean onMoveProcess(float x, float y);
+
+    //傳入拿起手勢
+    abstract Boolean onActionUpProcess(float x, float y);
 
     //正在被點擊叉叉
     abstract Boolean isOnClickDelete(float x, float y);
