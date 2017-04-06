@@ -18,6 +18,7 @@ import java.util.HashMap;
 
 import winho.com.print.unit.PrintModel;
 import winho.com.print.unit.PrintState;
+import winho.com.print.unit.Utils;
 
 import static android.R.attr.content;
 import static android.R.attr.path;
@@ -32,22 +33,20 @@ import static android.graphics.Paint.Style.STROKE;
 
 public class Rectangle extends PrintUnit {
 
+    int nowChangePointIndex = 0;
+    Bitmap iconDelete;
+    View parentView;
 
-    PrintState printState = PrintState.NotEdit;
+
+    int textSize = 25;
+    int thick = 10;
+    String text = "";
 
     HashMap<Integer, HashMap<String, Float>> points = new HashMap<Integer, HashMap<String, Float>>();
     HashMap<Integer, HashMap<String, Float>> pointsSpace = new HashMap<Integer, HashMap<String, Float>>();
     HashMap<String, Float> deletePosition = new HashMap<String, Float>();
     Path tPath = new Path();
     Region tRegion = new Region();
-    //    Region totalRegion = new Region(0, 0, parentView.getWidth(), parentView.getHeight());
-    int textSize = 5;
-    int thick = 2;
-    int circleSize = 60;
-    int nowChangePointIndex = 0;
-    String text = "";
-    Bitmap iconDelete;
-    View parentView;
 
 
     public Rectangle(Resources resources, View parentView, HashMap<String, Float> point1, Bitmap iconDelete) {
@@ -266,6 +265,14 @@ public class Rectangle extends PrintUnit {
     }
 
     @Override
+    Paint getTextPaint() {
+        Paint paint = new Paint();
+        paint.setTextSize(thick * 6);// 設定字體大小
+        paint.setColor(Color.BLUE);
+        return paint;
+    }
+
+    @Override
     Paint getCirclePaint() {
         Paint paint = new Paint();
         paint.setAntiAlias(true);
@@ -279,6 +286,7 @@ public class Rectangle extends PrintUnit {
         drawMainPart(canvas);
         drawCircle(canvas);
         drawDelete(canvas);
+        drawData(canvas);
     }
 
 
@@ -306,10 +314,6 @@ public class Rectangle extends PrintUnit {
     private Region getRegion(Path path) {
         Region region = new Region();
         region.setPath(path, new Region(0, 0, parentView.getWidth(), parentView.getHeight()));
-        //放大
-//        Rect rect = region.getBounds();
-//        Rect rectLarge = new Rect(rect.left - circleSize, rect.top - circleSize - iconDelete.getHeight() - 40, rect.right + circleSize, rect.bottom + circleSize);
-//        region.set(rectLarge);
 
         return region;
     }
@@ -345,10 +349,12 @@ public class Rectangle extends PrintUnit {
         }
     }
 
-    void drawFoot(Canvas canvas) {
+    @Override
+    void drawData(Canvas canvas) {
 
-
+        Utils utils = new Utils();
+        utils.drawText(canvas, getTextPaint(), points.get(1), points.get(2), "123");
+        
     }
-
 
 }
