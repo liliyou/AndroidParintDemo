@@ -48,6 +48,11 @@ public class Rectangle extends PrintUnit {
     Path tPath = new Path();
     Region tRegion = new Region();
 
+    int[][] lineIndex = new int[][]{
+            {1, 3},
+            {1, 2},
+            {2, 4},
+            {3, 4}};
 
     public Rectangle(Resources resources, View parentView, HashMap<String, Float> point1, Bitmap iconDelete) {
         this.parentView = parentView;
@@ -57,6 +62,9 @@ public class Rectangle extends PrintUnit {
         printModel = PrintModel.Rectangle;
     }
 
+    private void initLine() {
+
+    }
 
     @Override
     void onScaleSize(float x, float y) {
@@ -145,9 +153,17 @@ public class Rectangle extends PrintUnit {
     @Override
     Boolean onMoveProcess(float x, float y) {
 
-
         if ((printState == PrintState.onMoveCircle) && (nowChangePointIndex != 0)) {
+
+            Utils utils = new Utils();
+//            Boolean onTouch = utils.onTouchLine2(parentView, points.get(1), points.get(2), points.get(1));
+//            Boolean onTouch = utils.onTouchLine2(parentView, points.get(lineIndex[1][0]), points.get(lineIndex[1][1]), points.get(nowChangePointIndex));
+//            Boolean onTouch = utils.onTouchLine(points.get(lineIndex[1][0]), points.get(lineIndex[1][1]), points.get(nowChangePointIndex));
+            Boolean onTouch = utils.onTouchLine(points.get(1), points.get(2), points.get(1));
+            Log.e("onTouch", "" + onTouch);
+//            if (isEnableProcess(nowChangePointIndex)) {
             movePoint(nowChangePointIndex, x, y);
+//            }
         }
         if ((printState == PrintState.onMovePrintUnit) && contains(x, y)) {
 
@@ -162,8 +178,6 @@ public class Rectangle extends PrintUnit {
             }
 
         }
-
-
         return null;
     }
 
@@ -191,7 +205,7 @@ public class Rectangle extends PrintUnit {
 
         }
 
-        Log.e("點擊叉叉？", "" + onClick);
+//        Log.e("點擊叉叉？", "" + onClick);
         return onClick;
     }
 
@@ -200,7 +214,7 @@ public class Rectangle extends PrintUnit {
 
         Boolean onClick = (getClickCircleIndex(x, y) != 0);
 
-        Log.e("點擊圈圈？", "" + onClick);
+//        Log.e("點擊圈圈？", "" + onClick);
         return onClick;
     }
 
@@ -287,6 +301,21 @@ public class Rectangle extends PrintUnit {
         drawCircle(canvas);
         drawDelete(canvas);
         drawData(canvas);
+
+
+//        Paint paint = new Paint();
+//        paint.setAntiAlias(true);
+//        paint.setStyle(STROKE);
+//        paint.setColor(Color.YELLOW);
+//        paint.setStrokeWidth(20f);
+//        Path path = new Path();
+//        path.moveTo(points.get(1).get("X") - 20, points.get(1).get("Y") - 20);
+//        path.lineTo(points.get(1).get("X") + 20, points.get(1).get("Y") + 20);
+//        path.lineTo(points.get(2).get("X") + 20, points.get(2).get("Y") + 20);
+//        path.lineTo(points.get(2).get("X") - 20, points.get(2).get("Y") - 20);
+//        path.close();
+//        canvas.drawPath(path,paint);
+//        isEnableProcess(canvas, nowChangePointIndex);
     }
 
 
@@ -354,7 +383,30 @@ public class Rectangle extends PrintUnit {
 
         Utils utils = new Utils();
         utils.drawText(canvas, getTextPaint(), points.get(1), points.get(2), "123");
-        
+
+    }
+
+
+    private boolean isEnableProcess(Canvas canvas, int index) {
+
+        Boolean isEnableProcess = true;
+        Utils utils = new Utils();
+
+
+        for (int i = 0; i < lineIndex.length; i++) {
+            if ((lineIndex[i][0] != index) && (lineIndex[i][1] != index)) {
+                Boolean onTouch = utils.onTouchLine(points.get(lineIndex[i][0]), points.get(lineIndex[i][1]), points.get(index));
+                if (onTouch) {
+                    canvas.drawLine(
+                            points.get(lineIndex[i][0]).get("X"),
+                            points.get(lineIndex[i][0]).get("Y"),
+                            points.get(lineIndex[i][1]).get("X"),
+                            points.get(lineIndex[i][1]).get("Y"), getPaint());
+                }
+            }
+        }
+
+        return isEnableProcess;
     }
 
 }
