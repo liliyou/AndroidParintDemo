@@ -8,6 +8,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.Region;
 import android.util.Log;
@@ -42,8 +43,9 @@ public class Rectangle extends PrintUnit {
     int thick = 10;
     String text = "";
 
-    HashMap<Integer, HashMap<String, Float>> points = new HashMap<Integer, HashMap<String, Float>>();
+    HashMap<Integer, Point> points = new HashMap<Integer, Point>();
     HashMap<Integer, HashMap<String, Float>> pointsSpace = new HashMap<Integer, HashMap<String, Float>>();
+
     HashMap<String, Float> deletePosition = new HashMap<String, Float>();
     Path tPath = new Path();
     Region tRegion = new Region();
@@ -54,7 +56,7 @@ public class Rectangle extends PrintUnit {
             {2, 4},
             {3, 4}};
 
-    public Rectangle(Resources resources, View parentView, HashMap<String, Float> point1, Bitmap iconDelete) {
+    public Rectangle(Resources resources, View parentView, Point point1, Bitmap iconDelete) {
         this.parentView = parentView;
         this.resources = resources;
         this.iconDelete = iconDelete;
@@ -69,17 +71,20 @@ public class Rectangle extends PrintUnit {
     @Override
     void onScaleSize(float x, float y) {
 
-        HashMap<String, Float> point2 = new HashMap<String, Float>();
-        point2.put("X", points.get(1).get("X"));
-        point2.put("Y", y);
+        Point point2 = new Point();
+        point2.x = points.get(1).x;
+        point2.y = (int) y;
         points.put(2, point2);
-        HashMap<String, Float> point3 = new HashMap<String, Float>();
-        point3.put("X", x);
-        point3.put("Y", points.get(1).get("X"));
+
+
+        Point point3 = new Point();
+        point3.x = (int) x;
+        point3.y = points.get(1).y;
         points.put(3, point3);
-        HashMap<String, Float> point4 = new HashMap<String, Float>();
-        point4.put("X", x);
-        point4.put("Y", y);
+
+        Point point4 = new Point();
+        point4.x = (int) x;
+        point4.y = (int) y;
         points.put(4, point4);
 
     }
@@ -93,7 +98,7 @@ public class Rectangle extends PrintUnit {
             printState = PrintState.Edit;
 
             //如果還沒有載入完畢
-            if ((!points.containsKey(3)) || (!points.get(3).containsKey("Y"))) {
+            if ((!points.containsKey(3)) || points.get(3) == null) {
                 printState = PrintState.NotEdit;
             }
         } else {
@@ -118,8 +123,8 @@ public class Rectangle extends PrintUnit {
                     //初始化 space
                     for (int i = 1; i < 5; ++i) {
                         HashMap<String, Float> space = new HashMap<String, Float>();
-                        space.put("X", points.get(i).get("X") - x);
-                        space.put("Y", points.get(i).get("Y") - y);
+                        space.put("X", points.get(i).x - x);
+                        space.put("Y", points.get(i).y - y);
                         pointsSpace.put(i, space);
                     }
                     printState = PrintState.onMovePrintUnit;
@@ -156,23 +161,26 @@ public class Rectangle extends PrintUnit {
         if ((printState == PrintState.onMoveCircle) && (nowChangePointIndex != 0)) {
 
             Utils utils = new Utils();
-//            Boolean onTouch = utils.onTouchLine2(parentView, points.get(1), points.get(2), points.get(1));
-//            Boolean onTouch = utils.onTouchLine2(parentView, points.get(lineIndex[1][0]), points.get(lineIndex[1][1]), points.get(nowChangePointIndex));
-//            Boolean onTouch = utils.onTouchLine(points.get(lineIndex[1][0]), points.get(lineIndex[1][1]), points.get(nowChangePointIndex));
-            Boolean onTouch = utils.onTouchLine(points.get(1), points.get(2), points.get(1));
+
+            Rect line = utils.getLineFromPoint(points.get(1), points.get(2));
+            Rect line2 = utils.getLineFromPoint(points.get(1), points.get(3));
+            Boolean onTouch = utils.isLineIntersects(line,line2);
             Log.e("onTouch", "" + onTouch);
+
 //            if (isEnableProcess(nowChangePointIndex)) {
             movePoint(nowChangePointIndex, x, y);
 //            }
+
         }
         if ((printState == PrintState.onMovePrintUnit) && contains(x, y)) {
 
             if (pointsSpace.size() == 4) {
                 //初始化 space
                 for (int i = 1; i < 5; ++i) {
-                    HashMap<String, Float> point = new HashMap<String, Float>();
-                    point.put("X", x + pointsSpace.get(i).get("X"));
-                    point.put("Y", y + pointsSpace.get(i).get("Y"));
+                    Point point = new Point();
+                    point.x = (int) (x + pointsSpace.get(i).get("X"));
+                    point.y = (int) (y + pointsSpace.get(i).get("Y"));
+
                     points.put(i, point);
                 }
             }
@@ -225,8 +233,8 @@ public class Rectangle extends PrintUnit {
 
         if ((printState != PrintState.NotEdit) && points.size() == 4) {
             for (int i = 1; i < 5; ++i) {
-                float point_X = points.get(i).get("X");
-                float point_Y = points.get(i).get("Y");
+                float point_X = points.get(i).x;
+                float point_Y = points.get(i).y;
 
                 //上下左右判定
                 Boolean isX_L = ((point_X - (circleSize)) < x);
@@ -253,10 +261,11 @@ public class Rectangle extends PrintUnit {
 
     public void movePoint(int MovePointIndex, float x, float y) {
 
-        HashMap<String, Float> point = new HashMap<String, Float>();
-        point.put("X", x);
-        point.put("Y", y);
+        Point point = new Point();
+        point.x = (int) x;
+        point.y = (int) y;
         points.put(MovePointIndex, point);
+
     }
 
     @Override
@@ -301,26 +310,11 @@ public class Rectangle extends PrintUnit {
         drawCircle(canvas);
         drawDelete(canvas);
         drawData(canvas);
-
-
-//        Paint paint = new Paint();
-//        paint.setAntiAlias(true);
-//        paint.setStyle(STROKE);
-//        paint.setColor(Color.YELLOW);
-//        paint.setStrokeWidth(20f);
-//        Path path = new Path();
-//        path.moveTo(points.get(1).get("X") - 20, points.get(1).get("Y") - 20);
-//        path.lineTo(points.get(1).get("X") + 20, points.get(1).get("Y") + 20);
-//        path.lineTo(points.get(2).get("X") + 20, points.get(2).get("Y") + 20);
-//        path.lineTo(points.get(2).get("X") - 20, points.get(2).get("Y") - 20);
-//        path.close();
-//        canvas.drawPath(path,paint);
-//        isEnableProcess(canvas, nowChangePointIndex);
     }
 
 
     private void drawMainPart(Canvas canvas) {
-        if (points.containsKey(4) && points.get(4).containsKey("Y")) {
+        if (points.containsKey(4) && points.get(4) != null) {
 
             tPath = getPath();
             tRegion = getRegion(tPath);
@@ -332,10 +326,10 @@ public class Rectangle extends PrintUnit {
 
     private Path getPath() {
         Path path = new Path();
-        path.moveTo(points.get(1).get("X"), points.get(1).get("Y"));
-        path.lineTo(points.get(2).get("X"), points.get(2).get("Y"));
-        path.lineTo(points.get(4).get("X"), points.get(4).get("Y"));
-        path.lineTo(points.get(3).get("X"), points.get(3).get("Y"));
+        path.moveTo(points.get(1).x, points.get(1).y);
+        path.lineTo(points.get(2).x, points.get(2).y);
+        path.lineTo(points.get(4).x, points.get(4).y);
+        path.lineTo(points.get(3).x, points.get(3).y);
         path.close();
         return path;
     }
@@ -349,29 +343,29 @@ public class Rectangle extends PrintUnit {
 
     @Override
     void drawCircle(Canvas canvas) {
-        if ((printState != PrintState.NotEdit) && points.containsKey(3) && points.get(3).containsKey("Y")) {
-            canvas.drawCircle(points.get(1).get("X"), points.get(1).get("Y"), circleSize, getCirclePaint());
-            canvas.drawCircle(points.get(2).get("X"), points.get(2).get("Y"), circleSize, getCirclePaint());
-            canvas.drawCircle(points.get(3).get("X"), points.get(3).get("Y"), circleSize, getCirclePaint());
-            canvas.drawCircle(points.get(4).get("X"), points.get(4).get("Y"), circleSize, getCirclePaint());
+        if ((printState != PrintState.NotEdit) && points.containsKey(3) && points.get(3) != null) {
+            canvas.drawCircle(points.get(1).x, points.get(1).y, circleSize, getCirclePaint());
+            canvas.drawCircle(points.get(2).x, points.get(2).y, circleSize, getCirclePaint());
+            canvas.drawCircle(points.get(3).x, points.get(3).y, circleSize, getCirclePaint());
+            canvas.drawCircle(points.get(4).x, points.get(4).y, circleSize, getCirclePaint());
         }
     }
 
     @Override
     void drawDelete(Canvas canvas) {
 
-        if ((printState != PrintState.NotEdit) && points.containsKey(4) && points.get(4).containsKey("Y")) {
+        if ((printState != PrintState.NotEdit) && points.containsKey(4) && points.get(4) != null) {
             int index = 3;
 
-            if ((points.get(index).get("X") + iconDelete.getHeight() + circleSize + 20) > parentView.getWidth() || points.get(index).get("Y") - (circleSize * 3) - iconDelete.getHeight() < 0) {
+            if ((points.get(index).x + iconDelete.getHeight() + circleSize + 20) > parentView.getWidth() || points.get(index).y - (circleSize * 3) - iconDelete.getHeight() < 0) {
                 //叉叉畫裡面
-                deletePosition.put("X", points.get(index).get("X") - (circleSize * 3));
-                deletePosition.put("Y", points.get(index).get("Y") + circleSize);
+                deletePosition.put("X", (float) points.get(index).x - (circleSize * 3));
+                deletePosition.put("Y", (float) points.get(index).y + circleSize);
 
             } else {
                 //叉叉畫外面
-                deletePosition.put("X", points.get(index).get("X") + circleSize);
-                deletePosition.put("Y", points.get(index).get("Y") - (circleSize * 3));
+                deletePosition.put("X", (float) points.get(index).x + circleSize);
+                deletePosition.put("Y", (float) points.get(index).y - (circleSize * 3));
             }
 
             canvas.drawBitmap(iconDelete, deletePosition.get("X"), deletePosition.get("Y"), getPaint());
@@ -387,26 +381,26 @@ public class Rectangle extends PrintUnit {
     }
 
 
-    private boolean isEnableProcess(Canvas canvas, int index) {
-
-        Boolean isEnableProcess = true;
-        Utils utils = new Utils();
-
-
-        for (int i = 0; i < lineIndex.length; i++) {
-            if ((lineIndex[i][0] != index) && (lineIndex[i][1] != index)) {
-                Boolean onTouch = utils.onTouchLine(points.get(lineIndex[i][0]), points.get(lineIndex[i][1]), points.get(index));
-                if (onTouch) {
-                    canvas.drawLine(
-                            points.get(lineIndex[i][0]).get("X"),
-                            points.get(lineIndex[i][0]).get("Y"),
-                            points.get(lineIndex[i][1]).get("X"),
-                            points.get(lineIndex[i][1]).get("Y"), getPaint());
-                }
-            }
-        }
-
-        return isEnableProcess;
-    }
+//    private boolean isEnableProcess(Canvas canvas, int index) {
+//
+//        Boolean isEnableProcess = true;
+//        Utils utils = new Utils();
+//
+//
+//        for (int i = 0; i < lineIndex.length; i++) {
+//            if ((lineIndex[i][0] != index) && (lineIndex[i][1] != index)) {
+//                Boolean onTouch = utils.onTouchLine(points.get(lineIndex[i][0]), points.get(lineIndex[i][1]), points.get(index));
+//                if (onTouch) {
+//                    canvas.drawLine(
+//                            points.get(lineIndex[i][0]).x,
+//                            points.get(lineIndex[i][0]).y,
+//                            points.get(lineIndex[i][1]).x,
+//                            points.get(lineIndex[i][1]).y, getPaint());
+//                }
+//            }
+//        }
+//
+//        return isEnableProcess;
+//    }
 
 }

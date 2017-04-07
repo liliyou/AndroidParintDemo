@@ -2,6 +2,7 @@ package winho.com.print;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.Point;
 import android.os.Build;
 import android.view.View;
 
@@ -23,15 +24,15 @@ public class PrintUnitHandle {
                                          PrintModel printModel, float x, float y, Bitmap iconDelete) {
         switch (printModel) {
             case Rectangle:
-                HashMap<String, Float> point1 = new HashMap<String, Float>();
-                point1.put("X", x);
-                point1.put("Y", y);
+                Point point1 = new Point();
+                point1.x = (int) x;
+                point1.y = (int) y;
                 return new Rectangle(resources, parentView, point1, iconDelete);
 
             default:
-                HashMap<String, Float> point2 = new HashMap<String, Float>();
-                point2.put("X", x);
-                point2.put("Y", y);
+                Point point2 = new Point();
+                point2.x = (int) x;
+                point2.y = (int) y;
                 return new Rectangle(resources, parentView, point2, iconDelete);
         }
     }
@@ -45,7 +46,6 @@ public class PrintUnitHandle {
 //        }
 //        return null;
 //    }
-
 
 
 }
