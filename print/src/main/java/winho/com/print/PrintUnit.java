@@ -3,6 +3,9 @@ package winho.com.print;
 import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Point;
+
+import java.util.HashMap;
 
 import winho.com.print.unit.PrintModel;
 import winho.com.print.unit.PrintState;
@@ -20,6 +23,8 @@ public abstract class PrintUnit {
     public PrintState printState = PrintState.NotEdit;
 
     public final int circleSize = 60;
+
+    public Boolean isWaring = false;
 
     //這個元件正在被放大
     abstract void onScaleSize(float x, float y);
@@ -48,7 +53,7 @@ public abstract class PrintUnit {
     abstract int getClickCircleIndex(float x, float y);
 
     //移動點
-    abstract void movePoint(int MovePointIndex, float x, float y);
+    abstract void movePoint(HashMap<Integer, Point> points, int MovePointIndex, float x, float y);
 
     //設定狀態
     abstract void setStatus(int status);
@@ -61,6 +66,9 @@ public abstract class PrintUnit {
 
     //拿畫筆
     abstract Paint getStrokePaint();
+
+    //拿畫筆
+    abstract Paint getWarningPaint();
 
 
     //拿圓圈畫筆

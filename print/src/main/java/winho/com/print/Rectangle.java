@@ -11,6 +11,8 @@ import android.graphics.Path;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.Region;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.View;
 
@@ -50,11 +52,6 @@ public class Rectangle extends PrintUnit {
     Path tPath = new Path();
     Region tRegion = new Region();
 
-    int[][] lineIndex = new int[][]{
-            {1, 3},
-            {1, 2},
-            {2, 4},
-            {3, 4}};
 
     public Rectangle(Resources resources, View parentView, Point point1, Bitmap iconDelete) {
         this.parentView = parentView;
@@ -158,19 +155,28 @@ public class Rectangle extends PrintUnit {
     @Override
     Boolean onMoveProcess(float x, float y) {
 
-        if ((printState == PrintState.onMoveCircle) && (nowChangePointIndex != 0)) {
+        if ((printState == PrintState.onMoveCircle) && (nowChangePointIndex != 0) && (points.size() == 4)) {
 
+            HashMap<Integer, Point> prePoints = (HashMap<Integer, Point>) points.clone();
             Utils utils = new Utils();
+            //先確定下一步沒被禁止
+            movePoint(prePoints, nowChangePointIndex, x, y);
 
-            Rect line = utils.getLineFromPoint(points.get(1), points.get(2));
-            Rect line2 = utils.getLineFromPoint(points.get(1), points.get(3));
-            Boolean onTouch = utils.isLineIntersects(line,line2);
-            Log.e("onTouch", "" + onTouch);
+            Boolean onLineIntersects1 = utils.doIntersect(prePoints.get(1), prePoints.get(2), prePoints.get(3), prePoints.get(4));
+            Boolean onLineIntersects2 = utils.doIntersect(prePoints.get(1), prePoints.get(3), prePoints.get(2), prePoints.get(4));
 
-//            if (isEnableProcess(nowChangePointIndex)) {
-            movePoint(nowChangePointIndex, x, y);
-//            }
+            Log.e("onLineIntersects", "" + onLineIntersects1);
 
+
+            if (onLineIntersects1 || onLineIntersects2) {
+                //警告
+                isWaring = true;
+
+            } else {
+                isWaring = false;
+                //可以移動
+                movePoint(points, nowChangePointIndex, x, y);
+            }
         }
         if ((printState == PrintState.onMovePrintUnit) && contains(x, y)) {
 
@@ -259,7 +265,7 @@ public class Rectangle extends PrintUnit {
     }
 
 
-    public void movePoint(int MovePointIndex, float x, float y) {
+    public void movePoint(HashMap<Integer, Point> points, int MovePointIndex, float x, float y) {
 
         Point point = new Point();
         point.x = (int) x;
@@ -287,6 +293,21 @@ public class Rectangle extends PrintUnit {
         return paint;
     }
 
+
+    @Override
+    Paint getWarningPaint() {
+        Paint paint = new Paint();
+        paint.setAntiAlias(true);
+        paint.setStyle(STROKE);
+        if (isWaring) {
+            paint.setColor(Color.RED);
+        } else {
+            paint.setColor(Color.BLUE);
+        }
+        paint.setStrokeWidth(20f);
+        return paint;
+    }
+
     @Override
     Paint getTextPaint() {
         Paint paint = new Paint();
@@ -310,6 +331,7 @@ public class Rectangle extends PrintUnit {
         drawCircle(canvas);
         drawDelete(canvas);
         drawData(canvas);
+
     }
 
 
@@ -320,6 +342,7 @@ public class Rectangle extends PrintUnit {
             tRegion = getRegion(tPath);
             canvas.drawPath(tPath, getPaint());
             canvas.drawPath(tPath, getStrokePaint());
+            canvas.drawPath(tPath, getWarningPaint());
         }
 
     }

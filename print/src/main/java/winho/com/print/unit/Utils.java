@@ -36,32 +36,68 @@ public class Utils {
     }
 
     // point to line
-    public Rect getLineFromPoint(Point point, Point point2) {
-        Rect rect = new Rect(point.x, point.x, point2.x, point2.x);
-        return rect;
+    public Path getLineFromPoint(Point point, Point point2) {
+        Path path = new Path();
+        path.moveTo(point.x - 60, point.y - 60);
+        path.lineTo(point.x + 60, point.y + 60);
+        path.lineTo(point2.x + 60, point2.y + 60);
+        path.lineTo(point2.x - 60, point2.y - 60);
+        path.close();
+        return path;
     }
 
-    // 判斷有沒有交會
-    public boolean isLineIntersects(Rect line1, Rect line2) {
-
-        if (line1.intersect(line2)) {
+    // Given three colinear points p, q, r, the function checks if point q lies on line segment 'pr'
+    public boolean onSegment(Point p, Point q, Point r) {
+        if (q.x <= Math.max(p.x, r.x) && q.x >= Math.min(p.x, r.x) &&
+                q.y <= Math.max(p.y, r.y) && q.y >= Math.min(p.y, r.y))
             return true;
-        } else {
-            return false;
-        }
+        return false;
     }
 
-    // 判斷是不是在直線上
-    public boolean isOnLine(Rect line1, Point checkPoint) {
 
-        Rect rectPoint = new Rect(checkPoint.x + 60, checkPoint.x - 60, checkPoint.y + 60, checkPoint.y - 60);
+    /**
+     * To find orientation of ordered triplet (p, q, r).
+     * The function returns following values
+     *
+     * @param p
+     * @param q
+     * @param r
+     * @return 0 --> p, q and r are colinear, 1 --> 顺时针方向, 2 --> 逆时钟方向
+     */
+    int orientation(Point p, Point q, Point r) {
+        // See http://www.geeksforgeeks.org/orientation-3-ordered-points/  for details of below formula.
+        int val = (q.y - p.y) * (r.x - q.x) - (q.x - p.x) * (r.y - q.y);
+        if (val == 0) return 0;  // colinear
+        return (val > 0) ? 1 : 2; // clock or counterclock wise
+    }
 
-        if (line1.intersect(rectPoint)) {
+
+    //檢查兩線相交
+    // The main function that returns true if line segment 'p1q1' and 'p2q2' intersect.
+    public boolean doIntersect(Point p1, Point q1, Point p2, Point q2) {
+
+        // Find the four orientations needed for general and special cases
+        int o1 = orientation(p1, q1, p2);
+        int o2 = orientation(p1, q1, q2);
+        int o3 = orientation(p2, q2, p1);
+        int o4 = orientation(p2, q2, q1);
+        // General case
+        if (o1 != o2 && o3 != o4) {
             return true;
-        } else {
-            return false;
         }
+        // Special Cases
+        // p1, q1 and p2 are colinear and p2 lies on segment p1q1
+        if (o1 == 0 && onSegment(p1, p2, q1)) return true;
+        // p1, q1 and p2 are colinear and q2 lies on segment p1q1
+        if (o2 == 0 && onSegment(p1, q2, q1)) return true;
+        // p2, q2 and p1 are colinear and p1 lies on segment p2q2
+        if (o3 == 0 && onSegment(p2, p1, q2)) return true;
+        // p2, q2 and q1 are colinear and q1 lies on segment p2q2
+        if (o4 == 0 && onSegment(p2, q1, q2)) return true;
+
+        return false; // Doesn't fall in any of the above cases
     }
+
 
     // 判斷是不是在直線上
 //    public boolean onTouchLine(HashMap<String, Float> point1, HashMap<String, Float> point2, HashMap<String, Float> pointCheck) {
@@ -115,33 +151,33 @@ public class Utils {
 //        }
 //        return onTouch;
 //    }
-
-    private Boolean checkRangeSimple(float x, float y, float x2, float y2, float e1, float e2) {
-        if (x > x2) {
-            if (e1 > x || e1 < x2) {
-                Log.i("Ｘ不對", "");
-                return false;
-            }
-        } else {
-            if (e1 > x2 || e1 < x) {
-                Log.i("Ｘ不對", "");
-                return false;
-            }
-        }
-        if (y > y2) {
-            if (e2 > y || e2 < y2) {
-                Log.i("Ｙ不對", "");
-                return false;
-            }
-        } else {
-            if (e2 > y2 || e2 < y) {
-                Log.i("Ｙ不對", "");
-                return false;
-            }
-        }
-        return true;
-
-    }
+//
+//    private Boolean checkRangeSimple(float x, float y, float x2, float y2, float e1, float e2) {
+//        if (x > x2) {
+//            if (e1 > x || e1 < x2) {
+//                Log.i("Ｘ不對", "");
+//                return false;
+//            }
+//        } else {
+//            if (e1 > x2 || e1 < x) {
+//                Log.i("Ｘ不對", "");
+//                return false;
+//            }
+//        }
+//        if (y > y2) {
+//            if (e2 > y || e2 < y2) {
+//                Log.i("Ｙ不對", "");
+//                return false;
+//            }
+//        } else {
+//            if (e2 > y2 || e2 < y) {
+//                Log.i("Ｙ不對", "");
+//                return false;
+//            }
+//        }
+//        return true;
+//
+//    }
 
     //給兩點畫文字
     public void drawText(Canvas canvas, Paint paint, Point point1, Point point2, String strText) {
