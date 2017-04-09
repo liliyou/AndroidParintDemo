@@ -425,17 +425,13 @@ public class Rectangle extends PrintUnit {
     public Boolean isWrongOperation(HashMap<Integer, Point> prePoints) {
         Utils utils = new Utils();
         Boolean isLineIntersects;
-        //同值性線段=>點
-        Boolean onLineIntersects1 = utils.doIntersect(prePoints.get(1), prePoints.get(2), prePoints.get(3), prePoints.get(4));
-        Boolean onLineIntersects2 = utils.doIntersect(prePoints.get(1), prePoints.get(3), prePoints.get(2), prePoints.get(4));
-        if (onLineIntersects1 || onLineIntersects2) {
+        if (equivalentLine_L.isLineIntersects(prePoints) || equivalentLine_W.isLineIntersects(prePoints)) {
             //警告
             isLineIntersects = true;
 
         } else {
             isLineIntersects = false;
         }
-
         return isLineIntersects;
     }
 }

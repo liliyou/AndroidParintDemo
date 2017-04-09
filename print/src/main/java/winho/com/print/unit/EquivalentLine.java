@@ -1,7 +1,10 @@
 package winho.com.print.unit;
 
+import android.graphics.Point;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * Created by xuyating on 2017/4/10.
@@ -66,15 +69,27 @@ public class EquivalentLine {
         }
     }
 
-    public Boolean containLine(int[][] line)
-    {
-        if(lines!=null&&Arrays.asList(lines).containsAll(Arrays.asList(line))){
+    public Boolean containLine(int[][] line) {
+        if (lines != null && Arrays.asList(lines).containsAll(Arrays.asList(line))) {
             return true;
-        }else {
+        } else {
             return false;
         }
 
     }
+
+    public Boolean isLineIntersects(HashMap<Integer, Point> prePoints) {
+        Utils utils = new Utils();
+        Boolean isLineIntersects =false;
+
+        for (int i = 0; i < lines.length; i++) {
+            if (lines.length > i + 1) {
+                isLineIntersects = utils.doIntersect(prePoints.get(lines[i][0]), prePoints.get(lines[i][1]), prePoints.get(lines[i + 1][0]), prePoints.get(lines[i + 1][1]));
+            }
+        }
+        return isLineIntersects;
+    }
+
     public enum TYPE {
         L, W, H
     }
