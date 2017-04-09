@@ -11,9 +11,11 @@ import android.graphics.Region;
 import android.util.Log;
 import android.view.View;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import winho.com.print.R;
+import winho.com.print.unit.EquivalentLine;
 import winho.com.print.unit.PrintModel;
 import winho.com.print.unit.PrintState;
 import winho.com.print.unit.Utils;
@@ -39,12 +41,16 @@ public class Rectangle extends PrintUnit {
 
     String text = "";
 
-
     HashMap<Integer, Point> points = new HashMap<Integer, Point>();
     HashMap<Integer, HashMap<String, Float>> pointsSpace = new HashMap<Integer, HashMap<String, Float>>();
     HashMap<String, Float> deletePosition = new HashMap<String, Float>();
     Path tPath = new Path();
     Region tRegion = new Region();
+
+
+    EquivalentLine equivalentLine_L = new EquivalentLine(EquivalentLine.TYPE.L, new int[][]{{1, 3}, {2, 4}});
+    EquivalentLine equivalentLine_W = new EquivalentLine(EquivalentLine.TYPE.W, new int[][]{{1, 2}, {3, 4}});
+
 
     public Rectangle(Resources resources, View parentView, Point point1, Bitmap iconDelete) {
         this.parentView = parentView;
@@ -151,18 +157,8 @@ public class Rectangle extends PrintUnit {
             //先確定下一步沒被禁止
             movePoint(prePoints, nowChangePointIndex, x, y);
 
-            Boolean onLineIntersects1 = utils.doIntersect(prePoints.get(1), prePoints.get(2), prePoints.get(3), prePoints.get(4));
-            Boolean onLineIntersects2 = utils.doIntersect(prePoints.get(1), prePoints.get(3), prePoints.get(2), prePoints.get(4));
-
-            Log.e("onLineIntersects", "" + onLineIntersects1);
-
-
-            if (onLineIntersects1 || onLineIntersects2) {
-                //警告
-                isWaring = true;
-
-            } else {
-                isWaring = false;
+            isWaring = isWrongOperation(prePoints);
+            if (!isWaring) {
                 //可以移動
                 movePoint(points, nowChangePointIndex, x, y);
             }
@@ -262,6 +258,7 @@ public class Rectangle extends PrintUnit {
         points.put(MovePointIndex, point);
 
     }
+
     @Override
     public Paint getPaint() {
         Paint paint = new Paint();
@@ -270,6 +267,7 @@ public class Rectangle extends PrintUnit {
         paint.setStyle(FILL);
         return paint;
     }
+
     @Override
     public Paint getFullPaint() {
         Paint paint = new Paint();
@@ -394,9 +392,11 @@ public class Rectangle extends PrintUnit {
 
     @Override
     public void drawData(Canvas canvas) {
-
         Utils utils = new Utils();
-        utils.drawText(canvas, getTextPaint(), points.get(1), points.get(2), "123");
+
+        utils.drawText(canvas, getTextPaint(), points.get(equivalentLine_L.getPoint1()), points.get(equivalentLine_L.getPoint2()), equivalentLine_L.getValueWithUnit());
+        utils.drawText(canvas, getTextPaint(), points.get(equivalentLine_W.getPoint1()), points.get(equivalentLine_W.getPoint2()), equivalentLine_W.getValueWithUnit());
+
 
     }
 
@@ -419,5 +419,23 @@ public class Rectangle extends PrintUnit {
     @Override
     public void setText(String text) {
         this.text = text;
+    }
+
+
+    public Boolean isWrongOperation(HashMap<Integer, Point> prePoints) {
+        Utils utils = new Utils();
+        Boolean isLineIntersects;
+        //同值性線段=>點
+        Boolean onLineIntersects1 = utils.doIntersect(prePoints.get(1), prePoints.get(2), prePoints.get(3), prePoints.get(4));
+        Boolean onLineIntersects2 = utils.doIntersect(prePoints.get(1), prePoints.get(3), prePoints.get(2), prePoints.get(4));
+        if (onLineIntersects1 || onLineIntersects2) {
+            //警告
+            isLineIntersects = true;
+
+        } else {
+            isLineIntersects = false;
+        }
+
+        return isLineIntersects;
     }
 }
