@@ -3,15 +3,11 @@ package winho.com.print;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Point;
-import android.os.Build;
 import android.view.View;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
+import winho.com.print.space.PrintUnit;
+import winho.com.print.space.Rectangle;
 import winho.com.print.unit.PrintModel;
-
-import static winho.com.print.unit.PrintModel.Rectangle;
 
 /**
  * Created by xuyating on 2017/3/28.

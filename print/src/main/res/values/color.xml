@@ -2,4 +2,21 @@
 <resources>
 
     <color name="draw_circle">#AEFFFFFF</color>
+
+
+    <color name="alcolor1">#ff0000</color>
+    <color name="alcolor2">#ffff00</color>
+    <color name="alcolor3">#00ff00</color>
+    <color name="alcolor4">#00ffff</color>
+    <color name="alcolor5">#0000ff</color>
+    <color name="alcolor6">#ff00ff</color>
+    <color name="alcolor7">#f19149</color>
+    <color name="alcolor8">#000000</color>
+    <color name="alcolor9">#313131</color>
+    <color name="alcolor10">#626262</color>
+    <color name="alcolor11">#898989</color>
+    <color name="alcolor12">#aaaaaa</color>
+    <color name="alcolor13">#c9c9c9</color>
+    <color name="alcolor14">#e5e5e5</color>
+
 </resources>
