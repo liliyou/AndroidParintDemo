@@ -2,6 +2,7 @@ package side.lili.com.androidparintdemo;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -25,6 +26,8 @@ import rx.functions.Func1;
 import rx.functions.Func3;
 import rx.schedulers.Schedulers;
 import winho.com.print.Board;
+import winho.com.print.ImageHandle;
+import winho.com.print.PrintUnitHandle;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,8 +47,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         viewDraw = (LinearLayout) findViewById(R.id.viewDraw);
-        board = new Board(this, viewDraw, file2.getPath());
-        viewDraw.addView(board);
+        viewDraw.post(new Runnable() {
+            @Override
+            public void run() {
+                board = new Board(MainActivity.this, viewDraw, file2.getPath());
+                viewDraw.addView(board);
+            }
+        });
     }
 
 

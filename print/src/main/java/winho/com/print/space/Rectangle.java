@@ -142,6 +142,12 @@ public class Rectangle extends PrintUnit {
             if (tRegion.contains((int) x, (int) y)) {
                 inUnit = true;
             }
+            if(isOnClickDelete((int) x, (int) y)){
+                inUnit = true;
+            }
+            if(isOnClickCircle((int) x, (int) y)){
+                inUnit = true;
+            }
         }
         return inUnit;
     }

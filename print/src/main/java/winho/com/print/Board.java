@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 import winho.com.print.space.PrintUnit;
 import winho.com.print.unit.PrintModel;
+import winho.com.print.unit.PrintState;
 
 /**
  * Created by xuyating on 2017/3/23.
@@ -48,21 +49,26 @@ public class Board extends View {
     }
 
     private void setBoardBg() {
-        parentView.post(new Runnable() {
-            @Override
-            public void run() {
-                //取得拍照圖片
-                bitmapPhoto = ImageHandle.getFitSampleBitmap(filePath, parentView.getWidth(), parentView.getHeight());
-                iconDelete = BitmapFactory.decodeResource(getResources(), R.drawable.delete_44);
-                if (bitmapPhoto != null) {
-                    Log.e("", "");
-                }
+        //取得拍照圖片
+        bitmapPhoto = ImageHandle.getFitSampleBitmap(filePath, parentView.getWidth(), parentView.getHeight());
+        iconDelete = BitmapFactory.decodeResource(getResources(), R.drawable.delete_44);
+        if (bitmapPhoto != null) {
+            Log.e("", "");
+        }
+        //建立一個元件
+        printUnit = PrintUnitHandle.newPaintUnit(parentView, getResources(), nowWantToPrintModel, 300, 300, iconDelete);
+        printUnit.onScaleSize(900, 900);
+        printUnitArrayList.add(printUnit);
 
-                printUnit = PrintUnitHandle.newPaintUnit(parentView, getResources(), nowWantToPrintModel, 300, 300, iconDelete);
-                printUnit.onScaleSize(900, 900);
-                printUnitArrayList.add(printUnit);
-            }
-        });
+        //建立2個元件
+        printUnit = PrintUnitHandle.newPaintUnit(parentView, getResources(), nowWantToPrintModel, 400, 400, iconDelete);
+        printUnit.onScaleSize(1000, 1000);
+        printUnitArrayList.add(printUnit);
+
+    }
+
+    public void setPrintUnits(ArrayList<PrintUnit> printUnitArrayList) {
+        this.printUnitArrayList = printUnitArrayList;
     }
 
     @Override
@@ -77,12 +83,13 @@ public class Board extends View {
                     vPaint);
             //畫出拍照圖片
             canvas.drawBitmap(bitmapPhoto, 0, 0, vPaint);
-
-            //畫出元件
-            if (printUnit != null) {
-                printUnit.drawUnit(canvas);
+            //畫出全部元件
+            for (int i = 0; i < printUnitArrayList.size(); i++) {
+                //畫出元件
+                if (printUnitArrayList.get(i) != null) {
+                    printUnitArrayList.get(i).drawUnit(canvas);
+                }
             }
-
             invalidate();
         }
     }
@@ -93,29 +100,24 @@ public class Board extends View {
             case MotionEvent.ACTION_DOWN:
 
                 //當值元件要做事
+                if (printUnit.contains(event.getX(), event.getY())) {
 
 
-                //選擇畫面上的元件
-//                if (printUnit.isOnClickDelete(event.getX(), event.getY())) {
-//                    Log.e("", "isOnClickDelete");
-//                }
+                } else {
+                    //不能編輯
+                    printUnit.printState = PrintState.NotEdit;
 
-
-                //建立一個元件
-//                printUnit = PrintUnitHandle.newPaintUnit(event.getX(), event.getY(), nowWantToPrintModel);
-//                printUnitArrayList.add(printUnit);;
-
-                //確認當值元件
+                    for (int i = 0; i < printUnitArrayList.size(); i++) {
+                        //畫出元件
+                        if (printUnitArrayList.get(i) != null) {
+                            if (printUnitArrayList.get(i).contains(event.getX(), event.getY())) {
+                                printUnit = printUnitArrayList.get(i);
+                            }
+                        }
+                    }
+                }
 
                 printUnit.onActionDown(event.getX(), event.getY());
-
-//                Boolean isInPrintUnit = printUnit.contains(event.getX(), event.getY());
-
-//                Log.e("在此元件內", ""+isInPrintUnit);
-//                Log.e("event", "x:" + event.getX() + "y:" + event.getY());
-
-//                Log.e("isOnDuty", "" + isOnDuty);
-//                Log.e("", "" + isOnDuty);
 
                 return true;
 
